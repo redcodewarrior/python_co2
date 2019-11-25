@@ -1,0 +1,260 @@
+EJERCICIO 8
+Generar 5 valores random, mostrarlos por pantalla y volver a mostrarlos invertidos usando operadores aritmeticos
+
+"""
+Generar 5 valores random, mostrarlos por pantalla y volver a mostrarlos invertidos usando operadores aritmeticos
+
+"""
+import random as R
+
+def main ():
+    a = R.randint(10000, 99999)
+    
+    print ("Numero inicial", a)
+    
+    u = a % 10
+    v = (a % 100) // 10
+    x = (a % 1000) // 100
+    y = (a % 10000) // 1000
+    z = (a % 100000) // 10000
+        
+       
+    print ("Numero invertido", u)
+    print ("Numero invertido", v)
+    print ("Numero invertido", x)
+    print ("Numero invertido", y)
+    print ("Numero invertido", z)
+    
+
+
+main()
+Resultado
+
+>>> %Run ejercicio_8.py
+Numero inicial 13163
+Numero invertido 3
+Numero invertido 6
+Numero invertido 1
+Numero invertido 3
+Numero invertido 1
+>>> 
+Explicación:
+
+EJERCICIO 9
+Generar 5 valores random, mostrarlos por pantalla y volver a mostrarlos invertidos usando operadores aritmeticos
+
+"""
+Generar 5 valores random, mostrarlos por pantalla y volver a mostrarlos invertidos usando operadores aritmeticos
+Decir si es Palindromo o no
+
+"""
+import random as R
+
+def main ():
+    a = R.randint(10000, 99999)
+    
+    print ("Numero inicial", a)
+    
+    u = a % 10
+    v = (a % 100) // 10
+    x = (a % 1000) // 100
+    y = (a % 10000) // 1000
+    z = (a % 100000) // 10000
+    
+    if u == z and v == y:
+        print ("El numero es Palindromo")
+    else:
+        print("El numero no es palindromo")
+    
+       
+    print ("Numero invertido", u)
+    print ("Numero invertido", v)
+    print ("Numero invertido", x)
+    print ("Numero invertido", y)
+    print ("Numero invertido", z)
+    
+
+
+main()
+Resultado
+
+Numero inicial 91065
+El numero no es palindromo
+Numero invertido 5
+Numero invertido 6
+Numero invertido 0
+Numero invertido 1
+Numero invertido 9
+Explicación:
+
+EJERCICIO 9-BIS
+Para comprobar que el codigo funciona, vamos a “forzar” el Palindromo, INGRESANDO 4 valores del 0 al 9, mostrarlos por pantalla y volver a mostrarlos invertidos usando operadores aritmeticos.
+Decir si es Palindromo o no
+
+"""
+INGRESAR 4 valores del 0 al 9, mostrarlos por pantalla y volver a mostrarlos invertidos usando operadores aritmeticos
+Decir si es Palindromo o no
+
+"""
+
+def main ():
+    a = int(input("ING UN VALOR de 0 - 9: "))
+    b = int(input("ING OTRO 0 - 9: "))
+    c = int(input("ING OTRO MAS 0 - 9: "))
+    d = int(input("ING ULTIMO 0 - 9: "))
+
+    
+    
+    
+    if a == d and c == b:
+        print ("El numero es Palindromo")
+    else:
+        print("El numero no es palindromo")
+    
+       
+  
+
+main()
+Resultado
+
+>>> %Run ejercicio_9atestpalindromo.py
+ING UN VALOR de 0 - 9: 7
+ING OTRO 0 - 9: 4
+ING OTRO MAS 0 - 9: 4
+ING ULTIMO 0 - 9: 7
+El numero es Palindromo
+>>> 
+Explicación:
+
+EJERCICIO 10
+Generar un numero random, convertirlo a texto y decir si es numero
+japones – u+d == d+c
+coreano – d-c == u
+chino – u == um
+llevar un contador y mostrar el resultado
+
+"""
+Generar un numero random, convertirlo a texto y decir si es numero
+japones - u+d == d+c
+coreano - d-c == u
+chino - u == um
+llevar un contador y mostrar el resultado
+"""
+import random as R
+
+def main():
+    cartel = ""
+    cont = 0
+    
+    numero = R.randint (10000, 99999)
+    print("Numero inicial", numero)
+    
+    u = numero % 10
+    d = (numero % 100) // 10
+    c = (numero % 1000) // 100
+    um = (numero % 10000) // 1000
+    dm = (numero % 10000) // 10000
+    
+    if (u + d == (dm + c)):
+        cartel = cartel + "Japones"
+        cont = cont + 1
+        print (cartel)
+    else:
+        if (d - c == u):
+            cartel = cartel + "Coreano"
+            cont = cont +1
+            print (cartel)
+        else:
+            if (u == um):
+                cartel = cartel + "Chino"
+                cont = cont + 1
+                print (cartel)
+            else:
+                print ("El numero no es Asiatico")
+    
+    
+main()
+Resultado 1
+
+>>> %Run ejercicio_10.py
+Numero inicial 31113
+El numero no es Asiatico
+>>>
+Resultado 2
+
+>>> %Run ejercicio_10.py
+Numero inicial 52982
+Chino
+>>> 
+Explicación:
+
+EJERCICIO 11
+Generar numeros random de 8 digitos pero ajustados
+a que generen fecha. Mostrarlos como cadena en formato Año Mes Dia
+
+
+
+"""
+generar numeros random de 8 digitos pero ajustados
+a que generen fecha
+"""
+import random as R
+
+def main():
+    numeros = R.randint(19000000, 21001332) # genero numero aleatorio de 8 cifras entre años 1900 y 2100
+    print ("Numero generado", numeros)
+    d1 = (numeros % 10) # obtengo el primer digito desde la derecha
+    d2 = (numeros % 100) // 10 # obtengo el segundo digito desde la derecha
+    print ("d1", d1)
+    print ("d2", d2)
+    #comparo el segundo digito contra los valores entre 1 y 31, si no cumple no es una dia valido
+    if d2 < 0 or d2 > 3:
+        print ("Dia no valido")
+    else:
+        if d2 == 3 and d1 == 0 or d1 == 1: #compruebo que no hay un dia mayor a 31
+            print ("Dia correcto 30 o mas")
+        else:
+            print ("Dia correcto menor a 30")
+        
+        
+    d3 = (numeros % 1000) // 100 # obtengo el tercer digito desde la derecha
+    d4 = (numeros % 10000) // 1000 # obtengo el cuarto digito desde la derecha
+    print ("d3", d3)
+    print ("d4", d4)
+        
+    #comparo el tercer y cuarto  digito desde la izquierda que cumplen el formato mes, de 1 a 12
+    if d3 == 0 and d4 == 0:
+        print ("Mes 00 no es valido")
+    else:
+        if d4 > 1:
+            print ("Mes incorrecto")
+        else:
+            if d4 == 1 and d3 > 2:
+                print ("Mes no es correcto")
+            else:
+                print ("Mes Correcto")
+            
+    #obtengo los digitos del año        
+    d5 = (numeros % 100000) // 10000
+    d6 = (numeros % 1000000) // 100000
+    d7 = (numeros % 10000000) // 1000000
+    d8 = (numeros % 100000000) // 10000000
+    
+    #Finalmente presento la fecha en formato Año Dia Mes como cadena
+    print ("Año", str(5) + str(d6) + str(d7) + str(d8) +  (" ") + "Mes", str(d4) + str(d3) + (" ") + "Dia", str (d2) + str (d1) )
+    
+
+    
+main()
+Resultado
+
+>>> %Run ejercicio_11.py
+Numero generado 20710112
+d1 2
+d2 1
+Dia correcto menor a 30
+d3 1
+d4 0
+Mes Correcto
+Año 5702 Mes 01 Dia 12
+>>> 
